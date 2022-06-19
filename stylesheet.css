@@ -1,0 +1,47 @@
+form {
+  background-color: lightgrey;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px 0px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+input[type="submit"] {
+  background-color: lightskyblue;
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: white;
+  font-size: 20px;
+}
+
+.topnav {
+  background-color: lightskyblue;
+  padding: 5px 0px;
+}
+
+li {
+  display: inline;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color: lightslategray;
+}
