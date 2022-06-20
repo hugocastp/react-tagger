@@ -31,7 +31,7 @@ function Tagger() {
       return response.json();
     });
 
-  const getCollectionTags = () => {
+  const getCollectionTags = async () => {
     var myHeaders = new Headers();
     const token = localStorage.getItem("USER_TOKEN");
 
@@ -49,7 +49,9 @@ function Tagger() {
       response
         .json()
         .then(
-          (response) => localStorage.setItem("localTags", response?.tags),
+          (response) => {
+            localStorage.setItem("localTags", response?.tags)
+          }
         );
     });
   };

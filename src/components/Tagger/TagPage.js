@@ -16,7 +16,7 @@ const TagPage = () => {
   const [selectedTag, setSelectedTag] = useState("");
   const [handleTag, setHandleTag] = useState(false);
   const [message, setMessage] = useState("");
-
+  const [tags, setTags] = useState(["tag1", "tag2", "tag3"]);
   var myHeaders = new Headers();
   const token = localStorage.getItem("USER_TOKEN");
   myHeaders.append("Authorization", `Bearer ${token}`);
@@ -50,7 +50,10 @@ const TagPage = () => {
     ).then((response) => {
       response
         .json()
-        .then((response) => localStorage.setItem("localTags", response?.tags));
+        .then((response) => {
+          localStorage.setItem("localTags", response?.tags)
+          setTags(response?.tags);
+        });
     });
 
   };
@@ -107,7 +110,6 @@ const TagPage = () => {
   };
 
   useEffect(() => {
-    console.log("2 saaaaaaa")
     getCollectionTags();
     console.log("TEST TAKEN ", testTaken);
     if (testTaken) {
@@ -223,7 +225,7 @@ const TagPage = () => {
             <Card.Body>
               <div className={`${styles.row}`}>
                 <DropdownTags
-                  tags={localStorage.getItem("localTags").split(",")}
+                  tags={tags}
                   setSelectedTag={setSelectedTag}
                 />
               </div>
