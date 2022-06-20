@@ -1,5 +1,5 @@
-# Free Language Annotation Tool
-#Heroku deploy
+# Free Language Annotation Tool (Etiquetador Colaborativo)
+# Heroku deploy
 https://annotation-tool-tagger.herokuapp.com/
 
 # Getting Started with Create React App
