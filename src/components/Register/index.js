@@ -8,11 +8,7 @@ function Register() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [dob, setDob] = useState('');
-    const [mobilenum, setMobileNum] = useState('');
-    const [password, setPassword] = useState('');
-    const [accountType, setAccountType] = useState('');
-    
+    const [password, setPassword] = useState('');  
     const [messageOne, setMessageOne] = useState('');
     const [messageTwo, setMessageTwo] = useState('');
     
@@ -22,7 +18,7 @@ function Register() {
         e.preventDefault();
 
         var retStatus = 0;
-        setMessageOne('Logging in ...');
+        setMessageOne('Iniciando sesión ...');
 
         //console.log("User: " + username.value + " Password: " + password.value)
 
@@ -31,11 +27,8 @@ function Register() {
             let data = {
                 fname: firstName,
                 lname: lastName,
-                dob: dob,
                 email: email,
-                mobilenum: mobilenum,
-                password: password,
-                type: accountType
+                password: password
             };
 
             let res = await fetch(url, {
@@ -63,11 +56,11 @@ function Register() {
             localStorage.setItem('USER_TOKEN', retToken);
 
             if (retStatus === '201') {
-                setMessageOne('Success ... redirecting to tags');
+                setMessageOne('Correcto ... redireccionando a la página principal');
                 // window.location.replace('/profile');
                 navigate('/')
             }
-            setMessageTwo('Login Error. Please try again');
+            setMessageTwo('Error al iniciar sesión. Intente nuevamente');
         });
     }
 
@@ -75,13 +68,13 @@ function Register() {
         <>
             <Content>
                 <div>
-                    <h1>Sign Up</h1>
+                    <h1>Crear cuenta</h1>
                     <br />
                     <form onSubmit={handleRegister}>
                         <input
                             id="fname"
                             type="text"
-                            placeholder="First Name"
+                            placeholder="Nombre"
                             onChange={(e) => setFirstName(e.target.value)}
                         />
                         <br />
@@ -89,33 +82,16 @@ function Register() {
                         <input
                             id="lname"
                             type="text"
-                            placeholder="Last Name"
+                            placeholder="Apellido"
                             onChange={(e) => setLastName(e.target.value)}
-                        />
-                        <br />
-                        <br />
-                        <input
-                            id="dob"
-                            type="dob"
-                            placeholder="Date of Birth MM/DD/YYYY"
-                            onChange={(e) => setDob(e.target.value)}
                         />
                         <br />
                         <br />
                         <input
                             id="email"
                             type="email"
-                            placeholder="Email"
+                            placeholder="Correo electrónico"
                             onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <br />
-                        <br />
-                        <input
-                            id="mobilenum"
-                            type="tel"
-                            placeholder="Phone Number"
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                            onChange={(e) => setMobileNum(e.target.value)}
                         />
                         <br />
                         <br />
@@ -127,7 +103,7 @@ function Register() {
                         />
                         <br />
                         <br />
-                        <Button type='submit' variant="contained" color="primary">Register</Button>
+                        <Button type='submit' variant="contained" color="primary">Registrarse</Button>
                     </form>
 
                     <p>{messageOne}</p>

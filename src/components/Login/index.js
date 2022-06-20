@@ -19,7 +19,7 @@ function Login() {
     e.preventDefault();
     // console.log('Login form:', loginForm);
     var retStatus = 0;
-    setMessageOne("Logging in ...");
+    setMessageOne('Iniciando sesión ...');
 
     //console.log('User: ' + username.value + ' Password: ' + password.value)
 
@@ -43,6 +43,7 @@ function Login() {
         //return JSON.parse(ret.data);
         return ret;
       } else {
+        setMessageOne('El nombre de usuario o contraseña son incorrectos. Intente nuevamente');
         return `HTTP error: ${res.status}`;
       }
     }
@@ -55,10 +56,10 @@ function Login() {
       console.log("USERID",userId)
       console.log("LOGIN RETURN STATUS", retStatus);
       if (retStatus === "200") {
-        setMessageOne("Success ... redirecting to user profile");
+        setMessageOne("Inicio de sesión exitoso... redirigiendo a la página principal");
         navigate("/tags");
       }
-      setMessageTwo("Login Error. Please try again");
+      setMessageTwo("Error de inicio de sesión. Intente nuevamente");
     });
   }
 
@@ -77,13 +78,13 @@ function Login() {
       ) : (
         <Content>
           <div>
-            <h1>Log In</h1>
+            <h1>Inicio de sesión</h1>
             <br />
             <form onSubmit={handleSubmit}>
               <input
                 id="user"
                 type="text"
-                placeholder="Email or Username"
+                placeholder="Correo electrónico"
                 onChange={(e) => setUsername(e.target.value)}
               />
               <br />
@@ -91,13 +92,13 @@ function Login() {
               <input
                 id="pword"
                 type="password"
-                placeholder="Password"
+                placeholder="Contraseña"
                 onChange={(e) => setPassword(e.target.value)}
               />
               <br />
               <br />
               <Button type="submit" variant="contained" color="primary">
-                Login
+                Iniciar sesión
               </Button>
             </form>
             <br />
