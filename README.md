@@ -1,6 +1,8 @@
 # Free Language Annotation Tool (Etiquetador Colaborativo)
 # Heroku deploy
 https://annotation-tool-tagger.herokuapp.com/
+## Test user: admin@prueba.test
+## Test password: 12345678
 
 # Getting Started with Create React App
 
